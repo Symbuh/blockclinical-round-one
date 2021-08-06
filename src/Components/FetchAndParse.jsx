@@ -10,14 +10,17 @@ const FetchAndParse = () => {
 
   const fetchImages = () => {
     axios.get('https://app.blockclinical.com/api/recruit/questions')
-    .then(response => setQuestions(response.data.info.questions))
+    .then(response => {
+      setQuestions(response.data.data.info.questions)
+    })
     .catch(err => console.log(err))
   }
 
   return (
     <div>
-      Please Fill out fields and stuff
+      hello
     </div>
   )
 }
 
+export default FetchAndParse

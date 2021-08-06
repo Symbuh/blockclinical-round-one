@@ -1,9 +1,10 @@
 import './App.css';
+import FetchAndParse from './Components/FetchAndParse'
 
 function App() {
   return (
     <div className="App">
-      Hello
+      <FetchAndParse />
     </div>
   );
 }
