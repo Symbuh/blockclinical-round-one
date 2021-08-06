@@ -1,7 +1,7 @@
 import react, { useState, useEffect } from 'react'
 import SubmitForm from './SubmitForm'
 
-const Form = ({ questions }) => {
+const Form = ({ questions, setFormSubmitted }) => {
   const [answers, setAnswers] = useState([])
   const [formComplete, setFormComplete] = useState(false)
 
@@ -32,7 +32,7 @@ const Form = ({ questions }) => {
         </div>
       )})
     }
-    <SubmitForm answers={answers} formComplete={formComplete} />
+    <SubmitForm answers={answers} formComplete={formComplete} setFormSubmitted={setFormSubmitted} />
   </div>
   )
 }
