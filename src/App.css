@@ -4,5 +4,6 @@
 
 .textInput {
   width: 50em;
-  height: 5em;
+  height: 4em;
+  overflow-y: scroll;
 }

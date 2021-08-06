@@ -2,8 +2,6 @@ import react, { useState, useEffect } from 'react'
 import SubmitForm from './SubmitForm'
 
 const Form = ({ questions }) => {
-  console.log(questions)
-
   const [answers, setAnswers] = useState([])
   const [formComplete, setFormComplete] = useState(false)
 
@@ -25,12 +23,12 @@ const Form = ({ questions }) => {
           <div>
             {question.question}
           </div>
-          <input
+          <textarea
             type="text"
             className="textInput"
             name={question.id}
             onChange={handleChange}
-          ></input>
+          ></textarea>
         </div>
       )})
     }

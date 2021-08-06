@@ -4,6 +4,7 @@ import Form from './Form'
 
 const FetchAndParse = () => {
   const [questions, setQuestions] = useState([])
+  const [formSubmitted, setFormSubmitted] = useState(false)
 
   useEffect(() => {
     fetchImages()
@@ -17,9 +18,15 @@ const FetchAndParse = () => {
     .catch(err => console.log(err))
   }
 
+  if (formSubmitted) {
+    return (
+      <h1>Form is complete</h1>
+    )
+  }
+
   return (
     <div>
-      <Form questions={questions}/>
+      <Form questions={questions} setFormSubmitted={setFormSubmitted}/>
     </div>
   )
 }
