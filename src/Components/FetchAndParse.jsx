@@ -1,8 +1,9 @@
 import axios from 'axios'
 import react, { useState, useEffect } from 'react';
+import Form from './Form'
 
 const FetchAndParse = () => {
-  const [questions, setQuestions] = useState('')
+  const [questions, setQuestions] = useState([])
 
   useEffect(() => {
     fetchImages()
@@ -18,7 +19,7 @@ const FetchAndParse = () => {
 
   return (
     <div>
-      hello
+      <Form questions={questions}/>
     </div>
   )
 }
