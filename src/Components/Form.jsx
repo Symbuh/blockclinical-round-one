@@ -1,16 +1,20 @@
 import react, { useState, useEffect } from 'react'
+import SubmitForm from './SubmitForm'
 
 const Form = ({ questions }) => {
   console.log(questions)
 
   const [answers, setAnswers] = useState([])
+  const [formComplete, setFormComplete] = useState(false)
 
   const handleChange = (e) => {
     setAnswers({
       ...answers,
       [e.target.name]: e.target.value
+    })
+    if (Object.keys(answers).length === questions.length) {
+      setFormComplete(true)
     }
-    )
   }
   return (
   <div>
@@ -30,6 +34,7 @@ const Form = ({ questions }) => {
         </div>
       )})
     }
+    <SubmitForm answers={answers} formComplete={formComplete} />
   </div>
   )
 }
