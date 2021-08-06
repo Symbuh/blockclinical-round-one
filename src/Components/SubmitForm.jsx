@@ -10,6 +10,8 @@ const SubmitForm = ({ formComplete, answers, setFormSubmitted }) => {
     })
     axios.post('https://app.blockclinical.com/api/recruit/answers', {
       name: "Nicholas Sabadicci",
+      email: "nicholasrsabadicci@gmail.com",
+      phone: "760-500-4010",
       answers: myAnswers
     })
     .then(res => {
