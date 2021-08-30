@@ -15,16 +15,6 @@ const SubmitForm = ({ formComplete, answer, setFormSubmitted }) => {
 
     const answers = qs.stringify( {'answers':  myAnswers })
 
-    // axios(config)
-    // .then(function (response) {
-    //   console.log(JSON.stringify(response.data));
-    // })
-    // .catch(function (error) {
-    //   console.log(error);
-    // });
-
-    // also tried {params: 'answers': encodedJSON }
-
     axios.post('https://app.blockclinical.com/api/recruit/answers',  {answers: answers },
       { params: { answers: answers }, headers: {
         'content-type': 'application/x-www-form-urlencoded;charset=utf-8'
