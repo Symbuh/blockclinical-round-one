@@ -1,6 +1,6 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import axios from 'axios'
-
+import qs from 'qs'
 const SubmitForm = ({ formComplete, answers, setFormSubmitted }) => {
 
   let myAnswers = []
@@ -8,11 +8,13 @@ const SubmitForm = ({ formComplete, answers, setFormSubmitted }) => {
     Object.keys(answers).map((answerKey) => {
       myAnswers.push({ id: answerKey, answer: answers[answerKey] })
     })
-    axios.post('https://app.blockclinical.com/api/recruit/answers', {
-      name: "Nicholas Sabadicci",
-      email: "nicholasrsabadicci@gmail.com",
-      phone: "760-500-4010",
-      answers: myAnswers
+
+    const encodedJSON = qs.stringify({ 'answers': myAnswers })
+
+    // also tried {params: 'answers': encodedJSON }
+
+    axios.post('https://app.blockclinical.com/api/recruit/answers', encodedJSON,
+      { params: { encodedJSON },
     })
     .then(res => {
       console.log(res)
