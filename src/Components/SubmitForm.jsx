@@ -10,33 +10,23 @@ const SubmitForm = ({ formComplete, answer, setFormSubmitted }) => {
       myAnswers.push({ id: answerKey, answer: answer[answerKey] })
     })
 
-    const answers = encodeURIComponent(JSON.stringify({ 'answers': myAnswers }))
+    // const answers = encodeURIComponent(JSON.stringify({ 'answers': myAnswers }))
 
 
-  var data = qs.stringify({
-    'answers': answers
-  });
-  var config = {
-    method: 'post',
-    url: 'https://app.blockclinical.com/api/recruit/answers?answers=answers',
-    headers: {
-      'Content-Type': 'application/x-www-form-urlencoded'
-    },
-    data : data
-  };
+    const answers = qs.stringify( {'answers':  myAnswers })
 
-  axios(config)
-  .then(function (response) {
-    console.log(JSON.stringify(response.data));
-  })
-  .catch(function (error) {
-    console.log(error);
-  });
+    // axios(config)
+    // .then(function (response) {
+    //   console.log(JSON.stringify(response.data));
+    // })
+    // .catch(function (error) {
+    //   console.log(error);
+    // });
 
     // also tried {params: 'answers': encodedJSON }
 
-    axios.post('https://app.blockclinical.com/api/recruit/answers',  {answers: encodedJSON },
-      { params: { answers: encodedJSON }, headers: {
+    axios.post('https://app.blockclinical.com/api/recruit/answers',  {answers: answers },
+      { params: { answers: answers }, headers: {
         'content-type': 'application/x-www-form-urlencoded;charset=utf-8'
       }
     })

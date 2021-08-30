@@ -32,7 +32,7 @@ const Form = ({ questions, setFormSubmitted }) => {
         </div>
       )})
     }
-    <SubmitForm answers={answers} formComplete={formComplete} setFormSubmitted={setFormSubmitted} />
+    <SubmitForm answer={answers} formComplete={formComplete} setFormSubmitted={setFormSubmitted} />
   </div>
   )
 }
